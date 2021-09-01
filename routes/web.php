@@ -21,6 +21,6 @@ Route::middleware(['auth:sanctum', 'verified', 'role:admin'])->get('/dashboard',
     return view('dashboard');
 })->name('dashboard');
 
-Route::middleware(['auth:sanctum', 'verified', 'role:donatur'])->get('/dashboard', function () {
-    return view('dashboard');
-})->name('dashboard');
+// Route::middleware(['auth:sanctum', 'verified', 'role:donatur'])->get('/dashboard', function () {
+//     return view('dashboard');
+// })->name('dashboard');
