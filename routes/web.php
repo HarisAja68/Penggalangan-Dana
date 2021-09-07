@@ -1,6 +1,9 @@
 <?php
 
-use App\Http\Controllers\DashboardController;
+use App\Http\Controllers\{
+    DashboardController,
+    CategoryController,
+};
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -22,7 +25,7 @@ Route::middleware(['auth:sanctum', 'verified', 'role:admin,donatur'])->group(fun
     Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard');
 
     Route::middleware(['role:admin'])->group(function () {
-        //
+        Route::resource('/category', CategoryController::class);
     });
 
     Route::middleware(['role:donatur'])->group(function () {
