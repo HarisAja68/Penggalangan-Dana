@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\{
+    CampaignController,
     DashboardController,
     CategoryController,
 };
@@ -26,6 +27,7 @@ Route::middleware(['auth:sanctum', 'verified', 'role:admin,donatur'])->group(fun
 
     Route::middleware(['role:admin'])->group(function () {
         Route::resource('/category', CategoryController::class);
+        Route::resource('/campaign', CampaignController::class);
     });
 
     Route::middleware(['role:donatur'])->group(function () {

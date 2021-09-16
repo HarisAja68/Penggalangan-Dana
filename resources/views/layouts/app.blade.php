@@ -19,14 +19,16 @@
     <link rel="stylesheet" href="{{ asset('template') }}/plugins/icheck-bootstrap/icheck-bootstrap.min.css">
     <!-- JQVMap -->
     <link rel="stylesheet" href="{{ asset('template') }}/plugins/jqvmap/jqvmap.min.css">
-    <!-- Theme style -->
-    <link rel="stylesheet" href="{{ asset('template') }}/dist/css/adminlte.min.css">
     <!-- overlayScrollbars -->
     <link rel="stylesheet" href="{{ asset('template') }}/plugins/overlayScrollbars/css/OverlayScrollbars.min.css">
     <!-- Daterange picker -->
     <link rel="stylesheet" href="{{ asset('template') }}/plugins/daterangepicker/daterangepicker.css">
     <!-- summernote -->
     <link rel="stylesheet" href="{{ asset('template') }}/plugins/summernote/summernote-bs4.min.css">
+
+    @stack('css_vendor')
+    <!-- Theme style -->
+    <link rel="stylesheet" href="{{ asset('template') }}/dist/css/adminlte.min.css">
 
     @stack('css')
 </head>
@@ -117,6 +119,8 @@
     <script src="{{ asset('template') }}/plugins/summernote/summernote-bs4.min.js"></script>
     <!-- overlayScrollbars -->
     <script src="{{ asset('template') }}/plugins/overlayScrollbars/js/jquery.overlayScrollbars.min.js"></script>
+    @stack('js_vendor')
+
     <!-- AdminLTE App -->
     <script src="{{ asset('template') }}/dist/js/adminlte.js"></script>
 
