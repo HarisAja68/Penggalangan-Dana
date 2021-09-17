@@ -21,7 +21,7 @@ class CreateCampaignsTable extends Migration
             $table->string('short_description');
             $table->longText('body');
             $table->integer('view_count');
-            $table->enum('status', ['public', 'pending', 'archived'])->default('pending');
+            $table->enum('status', ['publish', 'pending', 'archived'])->default('pending');
             $table->integer('nominal');
             $table->integer('goal');
             $table->dateTime('end_date');

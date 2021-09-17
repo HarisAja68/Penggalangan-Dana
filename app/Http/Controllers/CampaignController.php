@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Campaign;
+use App\Models\Category;
 use Illuminate\Http\Request;
 
 class CampaignController extends Controller
@@ -14,7 +15,9 @@ class CampaignController extends Controller
      */
     public function index()
     {
-        return view('campaign.index');
+        $category = Category::orderBy('name')->get()->pluck('name', 'id');
+
+        return view('campaign.index', compact('category'));
     }
 
     /**

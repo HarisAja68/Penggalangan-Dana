@@ -12,7 +12,7 @@
     <div class="col-lg-12">
         <x-card>
             <x-slot name="header">
-                <a  href="{{ route('campaign.create') }}" class="btn btn-primary"><i class="fas fa-plus-circle"></i> Tambah</a>
+                <button onclick="addForm(`{{ route('campaign.store') }}`)" class="btn btn-primary"><i class="fas fa-plus-circle"></i> Tambah</button>
             </x-slot>
 
             <form action="" class="d-flex justify-content-between">
@@ -36,7 +36,19 @@
     </div>
 </div>
 
+@includeIf('campaign.form')
 @endsection
 
 <x-toasts />
 @includeIf('includes.datatable')
+@includeIf('includes.select2')
+@includeIf('includes.summernote')
+@includeIf('includes.datepicker')
+
+@push('js')
+    <script>
+        function addForm() {
+            $('#modal-form').modal('show');
+        }
+    </script>
+@endpush
