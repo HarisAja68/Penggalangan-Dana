@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Campaign;
 use App\Models\Category;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Validator;
 
 class CampaignController extends Controller
 {
@@ -38,7 +39,23 @@ class CampaignController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $validator = Validator::make($request->all(), [
+            'title' => 'required',
+            'categories' => 'required|array',
+            'short_description' => 'required',
+            'body' => 'required',
+            'publish_date' => 'required',
+            'status' => 'required',
+            'goal' => 'required',
+            'end_date' => 'required',
+            'note' => 'required',
+            'receiver' => 'required',
+            'path_image' => 'required|mimes:png,jpg|max:2048',
+        ]);
+
+        if ($validator->fails()) {
+            return response()->json(['errors' => $validator->errors()], 422);
+        }
     }
 
     /**

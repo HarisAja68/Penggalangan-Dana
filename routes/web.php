@@ -27,7 +27,7 @@ Route::middleware(['auth:sanctum', 'verified', 'role:admin,donatur'])->group(fun
 
     Route::middleware(['role:admin'])->group(function () {
         Route::resource('/category', CategoryController::class);
-        Route::resource('/campaign', CampaignController::class);
+        Route::resource('/campaign', CampaignController::class)->except('create', 'edit');
     });
 
     Route::middleware(['role:donatur'])->group(function () {

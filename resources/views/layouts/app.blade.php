@@ -4,6 +4,7 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="csrf-token" content="{{ csrf_token() }}">
     <title>{{ config('app.name') }} | @yield('title')</title>
 
     <!-- Google Font: Source Sans Pro -->
@@ -117,6 +118,12 @@
     <script src="{{ asset('template') }}/dist/js/adminlte.js"></script>
 
     <script>
+        $.ajaxSetup({
+            headers: {
+                'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+            }
+        });
+
         $('.custom-file-input').on('change', function() {
             let filename = $(this).val().split('\\').pop();
             $(this)

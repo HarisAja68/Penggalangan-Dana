@@ -83,19 +83,19 @@
         <div class="col-lg-6">
             <div class="form-group">
                 <label for="receiver">Penerima</label> <br>
-                <div class="custom-control custom-radio custom-control-inline">
+                <div class="custom-control custom-radio">
                     <input type="radio" id="saya" name="receiver" class="custom-control-input">
                     <label class="custom-control-label font-weight-normal" for="saya">Saya Sendiri</label>
                 </div>
-                <div class="custom-control custom-radio custom-control-inline">
+                <div class="custom-control custom-radio">
                     <input type="radio" id="keluarga" name="receiver" class="custom-control-input">
                     <label class="custom-control-label font-weight-normal" for="keluarga">Keluarga</label>
                 </div>
-                <div class="custom-control custom-radio custom-control-inline">
+                <div class="custom-control custom-radio">
                     <input type="radio" id="organisasi" name="receiver" class="custom-control-input">
                     <label class="custom-control-label font-weight-normal" for="organisasi">Organisasi/Lembaga</label>
                 </div>
-                <div class="custom-control custom-radio custom-control-inline">
+                <div class="custom-control custom-radio">
                     <input type="radio" id="lainnya" name="receiver" class="custom-control-input">
                     <label class="custom-control-label font-weight-normal" for="lainnya">Lainnya</label>
                 </div>
@@ -120,6 +120,6 @@
 
     <x-slot name="footer">
         <button type="button" class="btn btn-default" data-dismiss="modal">Batal</button>
-        <button class="btn btn-primary">Simpan</button>
+        <button type="button" class="btn btn-primary" onclick="submitForm(this.form)">Simpan</button>
     </x-slot>
 </x-modal>
